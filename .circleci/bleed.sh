@@ -143,7 +143,7 @@ packingkernel() {
     fi
     cp /root/project/kernel/out/arch/arm64/boot/Image.gz-dtb /root/anykernel/Image.gz-dtb
     cp /root/project/kernel/out/arch/arm64/boot/dtbo.img /root/anykernel/dtbo.img
-    : 'if ! [ -f "${KERN_IMG}" ]; then
+    if ! [ -f "${KERN_IMG}" ]; then
         build_failed
     fi
     if ! [ -f "${KERN_DTB}" ]; then
