@@ -7,7 +7,7 @@
 KERNEL_DIR="${PWD}"
 cd "$KERNEL_DIR" || exit
 DTB_TYPE="single" # define as "single" if want use single file
-KERN_IMG=/root/project/kernel_xiaomi_surya-1/out/arch/arm64/boot/Image.gz-dtb   # if use single file define as Image.gz-dtb instead
+KERN_IMG=/root/project/kernel/out/arch/arm64/boot/Image.gz-dtb   # if use single file define as Image.gz-dtb instead
 # KERN_DTB="${KERNEL_DIR}"/out/arch/arm64/boot/dtbo.img       # and comment this variable
 ANYKERNEL="${HOME}"/anykernel
 LOGS="${HOME}"/${CHEAD}.log
@@ -22,7 +22,7 @@ PARSE_ORIGIN="$(git config --get remote.origin.url)"
 COMMIT_POINT="$(git log --pretty=format:'%h : %s' -1)"
 CHEAD="$(git rev-parse --short HEAD)"
 LATEST_COMMIT="[$COMMIT_POINT](https://github.com/fakeriz/kernel_xiaomi_surya-1/commit/$CHEAD)"
-LOGS_URL="[See Circle CI Build Logs Here](https://circleci.com/gh/${CIRCLE_USERNAME}/kernel_xiaomi_surya-1/$CIRCLE_BUILD_NUM)"
+LOGS_URL="[See Circle CI Build Logs Here]($CIRCLE_USERNAME)"
 
 # Compiler
 mkdir -p "/mnt/workdir/proton-clang"
@@ -138,11 +138,11 @@ packingkernel() {
         rm -rf "${ANYKERNEL}"
     fi
     git clone "$ANYKERNEL_REPO" -b "$ANYKERNEL_BRANCH" "${ANYKERNEL}"
-    if ! [ -f /root/project/kernel_xiaomi_surya-1/out/arch/arm64/boot/Image.gz-dtb ]; then
+    if ! [ -f /root/project/kernel/out/arch/arm64/boot/Image.gz-dtb ]; then
         build_failed
     fi
-    cp /root/project/kernel_xiaomi_surya-1/out/arch/arm64/boot/Image.gz-dtb /root/anykernel/Image.gz-dtb
-    cp /root/project/kernel_xiaomi_surya-1/out/arch/arm64/boot/dtbo.img /root/anykernel/dtbo.img
+    cp /root/project/kernel/out/arch/arm64/boot/Image.gz-dtb /root/anykernel/Image.gz-dtb
+    cp /root/project/kernel/out/arch/arm64/boot/dtbo.img /root/anykernel/dtbo.img
     : 'if ! [ -f "${KERN_IMG}" ]; then
         build_failed
     fi
