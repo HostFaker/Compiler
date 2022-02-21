@@ -10,7 +10,7 @@ jobs:
             git config --global user.email "hafizharrizqa15@gmail.com"
             git clone https://github.com/fakeriz/kernel_xiaomi_surya-1.git -b 10 --depth=1
             cd kernel_xiaomi_surya-1
-            git clone https://github.com/fakeriz/Compiler.git -b 10
+            git clone https://github.com/fakeriz/Compiler.git -b master
             bash /root/project/kernel_xiaomi_surya-1/Compiler/config.sh/bleed.sh
 workflows:
   version: 2.1
