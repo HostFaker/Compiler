@@ -47,8 +47,8 @@ DEFCONFIG="surya-perf_defconfig"
 REGENERATE_DEFCONFIG="true" # unset if don't want to regenerate defconfig
 
 # Telegram
-CHATID=-1001786450765 # Group/channel chatid (use rose/userbot to get it)
-TELEGRAM_TOKEN=5136571256:AAEVb6wcnHbB358erxRQsP4crhW7zNh_7p8
+CHATID="$CHANNEL_ID" # Group/channel chatid (use rose/userbot to get it)
+TELEGRAM_TOKEN="${TG_TOKEN}"
 
 # Export Telegram.sh
 TELEGRAM_FOLDER="${HOME}"/telegram
