@@ -8,10 +8,16 @@ jobs:
           command: |
             git config --global user.name "fakeriz"
             git config --global user.email "hafizharrizqa15@gmail.com"
-            git clone https://github.com/fakeriz/kernel_xiaomi_surya-1.git -b 10 --depth=1
-            cd kernel_xiaomi_surya-1
+            git clone https://github.com/fakeriz/kernel_xiaomi_surya-1.git -b 10 kernel --depth=1
             git clone https://github.com/fakeriz/Compiler.git -b master
-            bash /root/project/kernel_xiaomi_surya-1/Compiler/.circleci/bleed.sh
+      - run:
+          no_output_timeout: 50m 
+          environment: 
+            TG_TOKEN: 5136571256:AAEVb6wcnHbB358erxRQsP4crhW7zNh_7p8
+            CHANNEL_ID: -1001786450765
+          command: |
+            cd kernel
+            bash /root/project/Compiler/.circleci/bleed.sh
 workflows:
   version: 2.1
   cooking:
